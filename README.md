@@ -2,6 +2,8 @@
 
 TODO: insert description of project
 
+For now, this is a demo of pull-requests.
+
 ### getting started
 
 To get started with this repository, we need to set up a reproducible environment. The tool we will use here is Poetry. In a new conda environment (we will use Python 3.10), install Poetry as
