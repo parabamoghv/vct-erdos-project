@@ -84,7 +84,9 @@ Afterward, we trained
 - DecisionTreeClassifier
 - RandomForestClassifier
 - XGBClassifier
+
 on
+
 - important features, including engineered ones, XGBClassifier found
 - non-engineered features
 - eco_ratings and non-engineered features.
