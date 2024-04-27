@@ -38,8 +38,9 @@ We have a vast collection of data from professional tournaments played over the 
 
 For this project, we only used tournaments held in 2023.  The data was spread over various files with varying amounts of overlapping and missing data relative to each other.  We put substantial effort into unifying the data into a single dataframe while preserving key features. We indexed our data by games, with around 160 features per game after feature engineering. 
 
-### section name?
-Main data files we used are: `maps_scores.csv, overview.csv, players_stats.csv, eco_rounds.csv, kills.csv, scores.csv`.  Since there is no data giving each game outcome, we used maps scores to extract each game outcome and combine it with other data.  For example, `players_stats.csv` has data about individual players' performance on each match, but it doesn't have match outcomes.
+### Feature engineering
+
+Main data files we used are: `maps_scores.csv, overview.csv, players_stats.csv, eco_rounds.csv, kills.csv, scores.csv`.  Since there is no data giving outcomes of each game, we used `maps_scores.csv` to extract each game outcome and combine it with other data.  For example, `players_stats.csv` has data about individual players' performance on each match, but it doesn't have match outcomes.
 
 Similarly, `eco_rounds.csv` and `kills.csv` have no match outcomes, so we needed to combined them with `maps_scores.csv` and `scores.csv` in order to
 
@@ -59,8 +60,14 @@ Run `"vct_2023_eco_rating_using_prob.ipynb"` and `"vct_2023_special_kills_rating
 - special_kills_non_finals_rounds.csv
 - special_kills_non_finals.csv
 
-*You have to run those two notebooks before you run `"vct_2023_final_data_processing.ipynb"`.*
+*<u>You have to run those two notebooks before you run `"vct_2023_final_data_processing.ipynb"`.</u>*
 
-Our final step, to create train and test data, is in `"vct_2023_final_data_processing.ipynb"`.  In this notebook, we first combine *eco_rating* and *special_kills_rating* with *players ratings/stats*.  Next, we split our data into two sets: training data, consisting of all tournaments before "Valorant Champions 2023", and test data, representing the "Valorant Champions 2023" tournament.  Then we take the average of individual player's ratings/stats in train data, and assign it as a predictor of test data, instead of using true value in test data.
+
+Our final step, to create train and test data, is in `"vct_2023_final_data_processing.ipynb"`.  In this notebook, first we make interaction terms of player's ratings and roles.  For example, if a player played "Controller" and had rating 1.2, its "Cont_rating" feature value is 1.2.  This process increases the total number of features immensely.  However, we performed this process to capture the potential impact of agent picks.
+
+Then we combine *eco_rating* and *special_kills_rating* with *players rating/stat*.  Next, we split our data into two sets: training data, consisting of all tournaments before "Valorant Champions 2023", and test data, representing the "Valorant Champions 2023" tournament.  Then we take the average of individual player's ratings in train data, and assign it as a predictor of test data, instead of using true value in test data.
 
 Runing `"vct_2023_final_data_processing.ipynb"` creates train data and test data in "../data/vct_2023/processed_data/" which will be used in our model training.
+
+
+## Feature and model selection and hyperparameter tuning
