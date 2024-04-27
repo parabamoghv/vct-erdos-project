@@ -71,3 +71,28 @@ Runing `"vct_2023_final_data_processing.ipynb"` creates train data and test data
 
 
 ## Feature and model selection and hyperparameter tuning
+
+### Feature selection
+
+By performing feature engineering, we have around 160 many features.  We want to now narrow down what features are most important.
+
+We used ".feature_importances_" of XGBClassifier to select the most important features.  Interestingly, we can see some of our engineered ratings, most importantly, eco_rating has really high importance than others.
+
+Afterward, we trained
+- LogisticRegression
+- KNeighborsClassifier
+- DecisionTreeClassifier
+- RandomForestClassifier
+- XGBClassifier
+on
+- important features, including engineered ones, XGBClassifier found
+- non-engineered features
+- eco_ratings and non-engineered features.
+
+In most cases, XGBClassifier performed the best and it gave accuracy around 67% on the test set.
+
+### Hyperparameter tuning
+
+We could use our engineered features and RandomForest, which showed higher performance than XGBClassifier.  However, this will require longer training time and more memory.  Moreover, XGB's performance on all features and its performance on eco_rating and non-engineered features were very close.  Hence, we decided to train XGBClassifier on eco_rating and non-engineered features.
+
+With some hyperparameter tuning, we could improve the accuracy up to 69-70%.  For more details, please read `"vct_2023_model_feature_selection.ipynb"`.
