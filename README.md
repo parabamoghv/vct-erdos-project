@@ -53,10 +53,9 @@ You can find more details in the following notebooks.
 - vct_2023_special_kills_rating.ipynb
 
 After manufacturing our own ratings, *eco_rating* and *special_kills_rating*, we need to save them for use in another notebook.
-Run `vct_2023_eco_rating_using_prob` and `"vct_2023_special_kills_rating.ipynb"`.
-It will create three csv files in "../data/vct_2023/", one is for eco_rating and special_kills the other two.
-
-
+Run `"vct_2023_eco_rating_using_prob.ipynb"` and `"vct_2023_special_kills_rating.ipynb"`.  It will create three csv files in "../data/vct_2023/", one is for eco_rating and special_kills the other two.
 
 *You have to run these two notebooks before you run `"vct_2023_final_data_processing.ipynb"`.*
+
+Our final step to create train/test data is in `"vct_2023_final_data_processing.ipynb"`.  In this notebook, we combine eco_rating and special_kills_rating with players ratings/stats.  Then we split our data into `training data` (all tournaments before "Valorant Champions 2023") and `test data` ("Valorant Champions 2023").  We take the average of individual player's ratings in `training data`, and assign it as a predictor of `test data`, instead of using true value in `test data`.
 
