@@ -95,8 +95,9 @@ In most cases, XGBClassifier performed the best and it gave accuracy around 67% 
 
 We could use our engineered features and RandomForest, which showed higher performance than XGBClassifier.  However, this will require longer training time and more memory.  Moreover, XGB's performance on all features and its performance on eco_rating and non-engineered features showed similar results.  Hence, we decided to train XGBClassifier on eco_rating and non-engineered features.
 
-With some hyperparameter tuning, we could improve the accuracy up to 69-70%.  For more details, please read `"vct_2023_model_feature_selection.ipynb"`.
+With some hyperparameter tuning, we could improve the accuracy up to 69-70%.
 
+You can find details about feature and model selection and hyperparameter tuning in `"vct_2023_model_feature_selection.ipynb"`.
 ## Future direction
 
 In our analysis we realized that in a match certain rounds matter more than others. Also, round win/loss momentum has a role in the match result. We would like to incorporate this in our model.			
