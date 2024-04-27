@@ -11,7 +11,7 @@ Riot Games, Valorant Teams, Online Betting, Broadcasters
 
 Valorant is a first-person tactical hero shooter video team game created by Riot Games. Throughout the year professional Valorant teams participate in various tournaments to claim the title of Valorant Champions. We want to create a model that predicts the results of 2023 Valorant championship matches using the regular season data. Also, we want to figure out which aspects of the game matter the most in such models.
 
-## getting started
+## Getting started
 
 To get started with this repository, we need to set up a reproducible environment. The tool we will use here is Poetry. In a new conda environment (we will use Python 3.10), install Poetry as
 
